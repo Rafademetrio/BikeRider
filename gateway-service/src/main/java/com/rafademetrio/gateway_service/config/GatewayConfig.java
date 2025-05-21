@@ -14,14 +14,14 @@ public class GatewayConfig {
                 .route("auth-service", r-> r.path("/auth/**").uri("lb:/bikerider-auth")) //routes to  authentication.
                 .route("product-service", r -> r.path("/api/products/**")
                         //TODO.filters(f -> f.filter(jwtAuthenticationFilter())) // Aplica filtro JWT
-                        .uri("lb://bikerider-product"))
+                        .uri("lb://product-service"))
                 .route("order-service", r -> r.path("/api/orders/**")
                         //TODO.filters(f -> f.filter(jwtAuthenticationFilter()))
-                        .uri("lb://bikerider-order"))
+                        .uri("lb://order-service"))
 
                 .route("user-service", r -> r.path("/api/users/**")
                         //TODO.filters(f -> f.filter(jwtAuthenticationFilter()))
-                        .uri("lb://bikerider-user"))
+                        .uri("lb://user-service"))
                 .build();
     }
 
